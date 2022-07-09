@@ -1,0 +1,26 @@
+{
+  "trigger": true,
+  "modules": [
+    "verification-link"
+  ],
+  "parentResource": "bunchaws",
+  "functionName": "bunchawsCustomMessage",
+  "resourceName": "bunchawsCustomMessage",
+  "parentStack": "auth",
+  "triggerEnvs": [
+    {
+      "key": "RESOURCENAME",
+      "value": "resourceName"
+    }
+  ],
+  "triggerDir": "/snapshot/repo/build/node_modules/@aws-amplify/amplify-category-auth/provider-utils/awscloudformation/triggers/CustomMessage",
+  "triggerTemplate": "CustomMessage.json.ejs",
+  "triggerEventPath": "CustomMessage.event.json",
+  "roleName": "bunchawsCustomMessage",
+  "skipEdit": true,
+  "REDIRECTURL": "http://localhost:0666/",
+  "EMAILSUBJECT": "confirmation link",
+  "EMAILMESSAGE": "",
+  "RESOURCENAME": "resourceName",
+  "enableCors": false
+}
