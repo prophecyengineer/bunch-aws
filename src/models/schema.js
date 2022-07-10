@@ -1,7 +1,7 @@
 export const schema = {
     "models": {
-        "Slugs": {
-            "name": "Slugs",
+        "User": {
+            "name": "User",
             "fields": {
                 "id": {
                     "name": "id",
@@ -10,8 +10,92 @@ export const schema = {
                     "isRequired": true,
                     "attributes": []
                 },
-                "slug": {
-                    "name": "slug",
+                "userFullName": {
+                    "name": "userFullName",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "userBio": {
+                    "name": "userBio",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "userImage": {
+                    "name": "userImage",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "tokenStream": {
+                    "name": "tokenStream",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "tokenStripe": {
+                    "name": "tokenStripe",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "Username": {
+                    "name": "Username",
+                    "isArray": false,
+                    "type": {
+                        "model": "Username"
+                    },
+                    "isRequired": false,
+                    "attributes": [],
+                    "association": {
+                        "connectionType": "BELONGS_TO",
+                        "targetName": "userUsernameId"
+                    }
+                }
+            },
+            "syncable": true,
+            "pluralName": "Users",
+            "attributes": [
+                {
+                    "type": "model",
+                    "properties": {}
+                },
+                {
+                    "type": "auth",
+                    "properties": {
+                        "rules": [
+                            {
+                                "allow": "public",
+                                "operations": [
+                                    "create",
+                                    "update",
+                                    "delete",
+                                    "read"
+                                ]
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "Username": {
+            "name": "Username",
+            "fields": {
+                "id": {
+                    "name": "id",
+                    "isArray": false,
+                    "type": "ID",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "username": {
+                    "name": "username",
                     "isArray": false,
                     "type": "String",
                     "isRequired": false,
@@ -19,7 +103,7 @@ export const schema = {
                 }
             },
             "syncable": true,
-            "pluralName": "Slugs",
+            "pluralName": "Usernames",
             "attributes": [
                 {
                     "type": "model",
@@ -56,5 +140,5 @@ export const schema = {
     },
     "enums": {},
     "nonModels": {},
-    "version": "32a2df2c345c277f84d4b0247f33dca3"
+    "version": "78ae03e67564f77ed89c1afd650ec748"
 };

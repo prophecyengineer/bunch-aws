@@ -1,32 +1,25 @@
+import { Redirect, Route } from "react-router-dom";
 import {
+  IonApp,
   IonContent,
   IonHeader,
+  IonIcon,
+  IonItem,
+  IonList,
   IonPage,
+  IonMenu,
+  IonRouterOutlet,
+  IonTabBar,
+  IonTabButton,
+  IonTabs,
   IonTitle,
   IonToolbar,
+  setupIonicReact,
 } from "@ionic/react";
-import ExploreContainer from "../../components/ExploreContainer";
-
 import "./Profile.css";
 
 const Profile: React.FC = () => {
-  return (
-    <IonPage>
-      <IonHeader>
-        <IonToolbar>
-          <IonTitle>Tab 2</IonTitle>
-        </IonToolbar>
-      </IonHeader>
-      <IonContent fullscreen>
-        <IonHeader collapse="condense">
-          <IonToolbar>
-            <IonTitle size="large">Tab 2</IonTitle>
-          </IonToolbar>
-        </IonHeader>
-        <ExploreContainer name="Tab 2 page" />
-      </IonContent>
-    </IonPage>
-  );
+  return <IonPage></IonPage>;
 };
 
 export default Profile;

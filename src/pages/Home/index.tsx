@@ -1,29 +1,57 @@
 import {
+  IonBackButton,
+  IonButton,
+  IonButtons,
   IonContent,
   IonHeader,
+  IonIcon,
+  IonItem,
+  IonLabel,
   IonPage,
+  IonRouterContext,
   IonTitle,
   IonToolbar,
 } from "@ionic/react";
-import ExploreContainer from "../../components/ExploreContainer";
+import * as queries from "../../graphql/queries";
+import { API } from "aws-amplify";
+import { logoBuffer } from "ionicons/icons";
+import { useContext, useEffect } from "react";
+import { ListSlugssQuery } from "../../API";
+import { GraphQLResult } from "@aws-amplify/api";
 
 import "./Home.css";
+import { Authenticator } from "@aws-amplify/ui-react";
 
 const Home: React.FC = () => {
+  const ionRouter = useContext(IonRouterContext);
+
+  useEffect(() => {
+    (async () => {
+      // const models = await DataStore.query(Slugs);
+      const apiSlugs = (await API.graphql<{ ListSlugss }>({
+        query: queries.listSlugss,
+        authMode: "AMAZON_COGNITO_USER_POOLS",
+      })) as GraphQLResult<ListSlugssQuery>;
+      console.log("apiSlugs", apiSlugs);
+      const slugs = apiSlugs?.data?.listSlugss?.items;
+      if (slugs.length > 0) {
+        ionRouter.push("/home");
+      } else {
+        ionRouter.push("/onboarding/create-username");
+      }
+    })();
+  }, []);
   return (
     <IonPage>
-      <IonHeader>
-        <IonToolbar>
-          <IonTitle>Home</IonTitle>
-        </IonToolbar>
-      </IonHeader>
       <IonContent fullscreen>
-        <IonHeader collapse="condense">
+        <IonHeader>
           <IonToolbar>
-            <IonTitle size="large">Tab 1</IonTitle>
+            <IonButtons slot="start">
+              <IonBackButton />
+            </IonButtons>
+            <IonTitle>Home</IonTitle>
           </IonToolbar>
         </IonHeader>
-        <ExploreContainer name="Tab 2 page" />
       </IonContent>
     </IonPage>
   );

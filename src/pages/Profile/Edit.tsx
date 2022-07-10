@@ -1,7 +1,5 @@
 import { IonPage } from "@ionic/react";
 
-const Explore: React.FC = () => {
+const Edit: React.FC = () => {
   return <IonPage></IonPage>;
 };
-
-export default Explore;

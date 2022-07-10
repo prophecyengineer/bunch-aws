@@ -3,7 +3,7 @@
   "serviceConfiguration": {
     "apiName": "bunchaws",
     "serviceName": "AppSync",
-    "gqlSchemaPath": "/tmp/amplify-7910a5a0-41d1-4ec2-963c-9aba6b1e0642/amplify/backend/api/bunchaws/schema.graphql",
+    "gqlSchemaPath": "/tmp/amplify-bca47cd4-e334-434f-bdb9-7c434a6616ab/amplify/backend/api/bunchaws/schema.graphql",
     "defaultAuthType": {
       "mode": "API_KEY",
       "keyDescription": "api key description",
